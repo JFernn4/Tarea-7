@@ -17,7 +17,7 @@
                     case 1:
                         {
                             Console.Clear();
-                            AskNumber();
+                            AskAListOfValues();
                             Console.ReadKey();
                             break;
                         }
@@ -31,7 +31,7 @@
                     case 6:
                         {
                             Console.Clear();
-                            AskNumber();
+                            ClearList();
                             break;
                         }
                     case 0:
@@ -44,30 +44,37 @@
                 }
             }
         }
-static void ShowMenu()
-{
-    Console.WriteLine("1. Ingresar números.");
-    Console.WriteLine("2. Media.");
-    Console.WriteLine("3. Mediana.");
-    Console.WriteLine("4. Moda.");
-    Console.WriteLine("5. Desviación estándar.");
-    Console.WriteLine("6. Ingresar nuevos números.");
-    Console.WriteLine("0. Salir.");
-}
-static void AskNumber()
-{
-    Console.WriteLine("Ingrese su cantidad de números");
-    int nNumber = Convert.ToInt32(Console.ReadLine());
-    for (int i = 0; i < nNumber; i++)
-    {
-        Console.WriteLine($"Ingresa el número {i + 1}");
-        int values=Convert.ToInt32(Console.ReadLine());
-        valuesList.Add(values);
-    }
-}
-static double Mean()
-{
-    return valuesList.Average();
-}
+            static void ShowMenu()
+            {
+                Console.WriteLine("1. Ingresar números.");
+                Console.WriteLine("2. Media.");
+                Console.WriteLine("3. Mediana.");
+                Console.WriteLine("4. Moda.");
+                Console.WriteLine("5. Desviación estándar.");
+                Console.WriteLine("6. Ingresar nuevos números.");
+                Console.WriteLine("0. Salir.");
+            }
+            static void AskAListOfValues()
+            {
+                Console.WriteLine("Ingrese su cantidad de números");
+                int nNumber = Convert.ToInt32(Console.ReadLine());
+                for (int i = 0; i < nNumber; i++)
+                {
+                    Console.WriteLine($"Ingresa el número {i + 1}");
+                    int values=Convert.ToInt32(Console.ReadLine());
+                    valuesList.Add(values);
+                }
+            }
+            static double Mean()
+            {
+                return valuesList.Average();
+            }
+            static void ClearList()
+            {
+            valuesList.Clear();
+            AskAListOfValues();
+            }
+
+
 }
 }
