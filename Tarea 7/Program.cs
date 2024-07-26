@@ -24,27 +24,28 @@
                     case 2:
                         {
                             Console.Clear();
-                            Console.WriteLine("Media:"+(Mean()));
+                            Console.WriteLine("Media:"+(CalculateMean()));
                             Console.ReadKey();
                             break;
                         }
                     case 3:
                         {
                             Console.Clear();
-                            Console.WriteLine("Mediana:"+(Median()));
+                            Console.WriteLine("Mediana:"+(CalculateMedian()));
                             Console.ReadKey();
                             break;
                         }
                     case 4:
                         {
                             Console.Clear();
-                            Console.WriteLine("Mediana:" + (Mode()));
+                            Console.WriteLine("Moda:" + (CalculateMode()));
                             Console.ReadKey();
                             break;
                         }
                     case 5:
                         {
                             Console.Clear();
+                            Console.WriteLine("Desviación estándar:" + (CalculateStandardDeviation()));
                             Console.ReadKey();
                             break;
                         }
@@ -86,7 +87,7 @@
                     valuesList.Add(values);
                 }
             }
-            static double Mean()
+            static double CalculateMean()
             {
             double sum = 0;
             foreach (int value in valuesList)
@@ -95,7 +96,7 @@
             }
             return sum/valuesList.Count;
             }
-            static int Median()
+            static int CalculateMedian()
             {
             if (valuesList.Count % 2 !=0) //odd number of values
             {
@@ -114,7 +115,7 @@
                 return medianValue;
             }
             }
-            static int Mode()
+            static int CalculateMode()
             {
                 return valuesList.GroupBy(value => value).OrderByDescending(group => group.Count()).First().Key;
             }
@@ -123,6 +124,18 @@
             valuesList.Clear(); 
             AskAListOfValues();
             }
+        static double CalculateStandardDeviation()
+        {
+            double mean= CalculateMean();
+            double sumOfSquaresOfDifferences = 0;
+            foreach (int value in valuesList)
+            {
+                
+                double difference = value - mean;
+                sumOfSquaresOfDifferences += difference * difference;
+            }
+            return Math.Sqrt(sumOfSquaresOfDifferences/valuesList.Count);
+        }
 
 
 }
