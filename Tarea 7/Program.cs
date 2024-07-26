@@ -28,6 +28,13 @@
                             Console.ReadKey();
                             break;
                         }
+                    case 3:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Mediana:"+(Median()));
+                            Console.ReadKey();
+                            break;
+                        }
                     case 6:
                         {
                             Console.Clear();
@@ -67,11 +74,35 @@
             }
             static double Mean()
             {
-                return valuesList.Average();
+            double sum = 0;
+            foreach (int value in valuesList)
+            {
+                sum += value;
+            }
+            return sum/valuesList.Count;
+            }
+            static int Median()
+            {
+            if (valuesList.Count % 2 !=0) //odd number of values
+            {
+                double medianOddPosition= (valuesList.Count/2);
+                double medianOddPositionRounded = Math.Round(medianOddPosition);
+                int medianOddPositionConvertedToInt= Convert.ToInt32(medianOddPositionRounded);
+                int medianValue = valuesList[medianOddPositionConvertedToInt];
+                return medianValue;
+            }
+            else //even number of values
+            {
+                int medianEvenPosition= ((valuesList.Count/2))-1;
+                double medianAverage = ((valuesList[medianEvenPosition] + valuesList[medianEvenPosition + 1])/2.0);
+                medianAverage= Math.Ceiling(medianAverage);
+                int medianValue= Convert.ToInt32(medianAverage);
+                return medianValue;
+            }
             }
             static void ClearList()
             {
-            valuesList.Clear();
+            valuesList.Clear(); 
             AskAListOfValues();
             }
 
