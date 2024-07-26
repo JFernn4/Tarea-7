@@ -35,6 +35,19 @@
                             Console.ReadKey();
                             break;
                         }
+                    case 4:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Mediana:" + (Mode()));
+                            Console.ReadKey();
+                            break;
+                        }
+                    case 5:
+                        {
+                            Console.Clear();
+                            Console.ReadKey();
+                            break;
+                        }
                     case 6:
                         {
                             Console.Clear();
@@ -101,7 +114,11 @@
                 return medianValue;
             }
             }
-            static void ClearList()
+            static int Mode()
+            {
+                return valuesList.GroupBy(value => value).OrderByDescending(group => group.Count()).First().Key;
+            }
+        static void ClearList()
             {
             valuesList.Clear(); 
             AskAListOfValues();
