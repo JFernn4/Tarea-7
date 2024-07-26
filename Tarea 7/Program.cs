@@ -39,6 +39,7 @@
                         {
                             Console.Clear();
                             ClearList();
+                            Console.ReadKey();
                             break;
                         }
                     case 0:
