@@ -1,4 +1,4 @@
-﻿namespace Calculadora
+﻿namespace StadisticCalculator
 {
     internal class Program
     {
@@ -9,60 +9,67 @@
             int option;
             while (menu)
             {
-                Console.Clear();
-                ShowMenu();
-                option = Convert.ToInt32(Console.ReadLine());
-                switch (option)
+                try
                 {
-                    case 1:
-                        {
-                            Console.Clear();
-                            AskAListOfValues();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 2:
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Media:"+(CalculateMean()));
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 3:
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Mediana:"+(CalculateMedian()));
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 4:
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Moda:" + (CalculateMode()));
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 5:
-                        {
-                            Console.Clear();
-                            Console.WriteLine("Desviación estándar:" + (CalculateStandardDeviation()));
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 6:
-                        {
-                            Console.Clear();
-                            ClearList();
-                            Console.ReadKey();
-                            break;
-                        }
-                    case 0:
-                        {
-                            Console.Clear();
-                            menu = false;
-                            break;  
-                        }
-        
+                    Console.Clear();
+                    ShowMenu();
+                    option = Convert.ToInt32(Console.ReadLine());
+                    switch (option)
+                    {
+                        case 1:
+                            {
+                                Console.Clear();
+                                AskAListOfValues();
+                                break;
+                            }
+                        case 2:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Media:" + (CalculateMean()));
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 3:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Mediana:" + (CalculateMedian()));
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 4:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Moda:" + (CalculateMode()));
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 5:
+                            {
+                                Console.Clear();
+                                Console.WriteLine("Desviación estándar:" + (CalculateStandardDeviation()));
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 6:
+                            {
+                                Console.Clear();
+                                ClearList();
+                                Console.ReadKey();
+                                break;
+                            }
+                        case 0:
+                            {
+                                Console.Clear();
+                                menu = false;
+                                break;
+                            }
+
+                    }
+                }
+                catch (Exception ex) 
+                {
+                    Console.WriteLine("Ingresa un número del 0 al 6 " + ex.Message);
+                    Console.ReadKey();
                 }
             }
         }
@@ -78,15 +85,45 @@
             }
             static void AskAListOfValues()
             {
-                Console.WriteLine("Ingrese su cantidad de números");
-                int nNumber = Convert.ToInt32(Console.ReadLine());
-                for (int i = 0; i < nNumber; i++)
+            Console.WriteLine("Ingrese la cantidad de números");
+            int nNumber = 0;
+
+            while (true)
+            {
+                try
                 {
-                    Console.WriteLine($"Ingresa el número {i + 1}");
-                    int values=Convert.ToInt32(Console.ReadLine());
-                    valuesList.Add(values);
+                    nNumber = Convert.ToInt32(Console.ReadLine());
+                    break;
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Por favor, ingrese un número entero."+ ex.Message);
+                    Console.ReadKey();
+                    Console.Clear();
+                    Console.WriteLine("Ingrese la cantidad de números");
                 }
             }
+            for (int i = 0; i < nNumber; i++)
+            {
+                int value = 0;
+                while (true)
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Ingresa el número {i + 1}");
+                    try
+                    {
+                        value = Convert.ToInt32(Console.ReadLine());
+                        break; 
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Por favor, ingrese un número entero." + ex.Message);
+                        Console.ReadKey();
+                    }
+                }
+                valuesList.Add(value);
+            }
+        }
             static double CalculateMean()
             {
             double sum = 0;
