@@ -24,38 +24,88 @@
                             }
                         case 2:
                             {
-                                Console.Clear();
-                                Console.WriteLine("Media:" + (CalculateMean()));
-                                Console.ReadKey();
-                                break;
+                                if (valuesList.Count == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Primero debe ingresar una serie de números.");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Media:" + (CalculateMean()));
+                                    Console.ReadKey();
+                                    break;
+                                }
                             }
                         case 3:
                             {
-                                Console.Clear();
-                                Console.WriteLine("Mediana:" + (CalculateMedian()));
-                                Console.ReadKey();
-                                break;
+                                if (valuesList.Count == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Primero debe ingresar una serie de números.");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Mediana:" + (CalculateMedian()));
+                                    Console.ReadKey();
+                                    break;
+                                }
                             }
                         case 4:
                             {
-                                Console.Clear();
-                                Console.WriteLine("Moda:" + (CalculateMode()));
-                                Console.ReadKey();
-                                break;
+                                if (valuesList.Count == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Primero debe ingresar una serie de números.");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Moda:" + (CalculateMode()));
+                                    Console.ReadKey();
+                                    break;
+                                }
                             }
                         case 5:
                             {
-                                Console.Clear();
-                                Console.WriteLine("Desviación estándar:" + (CalculateStandardDeviation()));
-                                Console.ReadKey();
-                                break;
+                                if (valuesList.Count == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Primero debe ingresar una serie de números.");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Desviación estándar:" + (CalculateStandardDeviation()));
+                                    Console.ReadKey();
+                                    break;
+                                }
                             }
                         case 6:
                             {
-                                Console.Clear();
-                                ClearList();
-                                Console.ReadKey();
-                                break;
+                                if (valuesList.Count == 0)
+                                {
+                                    Console.Clear();
+                                    Console.WriteLine("Primero debe ingresar una serie de números.");
+                                    Console.ReadKey();
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Clear();
+                                    ClearList();
+                                    Console.ReadKey();
+                                    break;
+                                }
                             }
                         case 0:
                             {
