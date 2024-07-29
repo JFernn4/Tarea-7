@@ -1,4 +1,4 @@
-﻿namespace StadisticCalculator
+﻿namespace StatisticCalculator
 {
     internal class Program
     {
